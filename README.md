@@ -1,1 +1,3 @@
 # GarbageWeiXinApp
+
+test
