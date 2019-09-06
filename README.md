@@ -17,30 +17,30 @@
 
 <center><b>首页</b></center>
 
-![首页](mkimg\首页.png)
+![首页](/mkimg/首页.png)
 
 <center><b>搜索排名</b></center>
 
-![搜索排名](mkimg\搜索排名.png)
+![搜索排名](/mkimg/搜索排名.png)
 
 <center><b>图像识别</b></center>
 
-![图像识别](mkimg\图像识别.png)
+![图像识别](/mkimg/图像识别.png)
 
 <center><b>图像识别搜索</b></center>
 
-![图像识别搜索](mkimg\图像识别搜索.png)
+![图像识别搜索](/mkimg/图像识别搜索.png)
 
 <center><b>垃圾分类总列表</b></center>
 
-![垃圾分类总列表](mkimg\垃圾分类总列表.png)
+![垃圾分类总列表](/mkimg/垃圾分类总列表.png)
 
 <center><b>关于</b></center>
 
-![关于](mkimg\关于.png)
+![关于](/mkimg/关于.png)
 
 <center><b>提交意见</b></center>
 
-![提交意见](mkimg\提交意见.png)
+![提交意见](/mkimg/提交意见.png)
 
 该小程序没有部署到 HTTPS 服务器上，只是调试的时候可以使用，需要的朋友可以自行搭建到 HTTPS 服务器，后端代码稍后上传
