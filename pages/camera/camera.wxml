@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">拍照分类</view>
+</cu-custom>
+
+<!-- camera.wxml -->
+<cover-view class="cu-card case {{isCard?'no-card':''}}" style="z-index: 1;">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <camera device-position="back" flash="auto" binderror="error" style="width: 100%; height: 300px;"></camera>
+      </view>
+    </view>
+  </view>
+</cover-view>
+
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <view class="text-black text-bold">此功能后台正在完善</view>
+        <view class="text-black text-bold">测试结果有待改善</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='text-center'>
+  <view class='cu-btn bg-green lg block shadow radius margin-xl' bindtap="takePhoto">
+    拍照
+  </view>
+</view>
+
+<!-- 显示图片 -->
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <image src="{{src}}"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 垃圾信息弹窗 -->
+<view class="cu-modal bottom-modal {{modalName =='garInfoView'?'show':''}}" style="position: absolute;z-index: 9999;">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+
+    <scroll-view style="height:400rpx" scroll-y>
+      <view class="cu-list menu card-menu shadow-lg">
+        <view class="cu-item" wx:for="{{garInfoList}}">
+          <view class="content flex solid-bottom justify-between">
+            <text class="text-grey padding-sm margin-xs radius">{{item.garName}}</text>
+            <text class="text-grey padding-sm margin-xs radius">{{item.claName}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

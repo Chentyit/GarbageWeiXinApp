@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/list/list",
+    "pages/mine/mine",
+    "pages/opinion/opinion",
+    "pages/camera/camera"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Color UI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "img/nav-tar/home.png",
+        "selectedIconPath": "img/nav-tar/homesel.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "列表",
+        "iconPath": "img/nav-tar/list.png",
+        "selectedIconPath": "img/nav-tar/listsel.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "关于",
+        "iconPath": "img/nav-tar/mine.png",
+        "selectedIconPath": "img/nav-tar/minesel.png"
+      }
+    ]
+  }
+}

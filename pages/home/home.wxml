@@ -1,0 +1,108 @@
+<scroll-view scroll-y class="DrawerPage {{modalName=='draverModal'?'show':''}}">
+  <cu-custom bgColor="bg-gradual-blue">
+    <view slot="content">主页</view>
+  </cu-custom>
+
+  <!-- 搜索框 -->
+  <view class="cu-bar bg-gradual-blue search">
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索垃圾" bindinput="inputGarrName" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <text bindtap="searchGar" data-target="{{inGarName}}">确定</text>
+      <navigator class="cuIcon-camera margin-left text-white" url="/pages/camera/camera"></navigator>
+    </view>
+  </view>
+
+  <!-- 轮播图 -->
+  <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{swiperListUp}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 分类列表 -->
+  <view class='nav-list'>
+    <view open-type="navigate" hover-class='none' class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view bindtap="showModal" data-target="{{item}}">
+        <view class="nav-title">{{item.title}}</view>
+        <view class="nav-name">{{item.name}}</view>
+        <text class='cuIcon-{{item.icon}}'></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">{{title}}</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="bg-img" style="background-image: url('{{picsrc}}');height:200px;background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"></view>
+      <view class="padding-xl">
+        {{content}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 全屏抽屉 -->
+  <view class='text-center'>
+    <view class='cu-btn bg-green lg block shadow radius margin-xl' bindtap="showDrawer" data-target="draverModal">
+      最新垃圾排行
+    </view>
+  </view>
+
+  <!-- 底部轮播图 -->
+  <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+    <view class="tower-item {{item.zIndex==1?'none':''}}" wx:for="{{swiperListDowm}}" wx:key style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </view>
+  </view>
+
+  <!-- 垃圾信息弹窗 -->
+  <view class="cu-modal {{modalName =='garInfoView'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">{{modelTitle}}</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+
+      <scroll-view style="height:600rpx" scroll-y>
+        <view class="cu-list menu card-menu shadow-lg">
+          <view class="cu-item" wx:for="{{garInfoList}}" wx:key>
+            <view class="content flex solid-bottom justify-between">
+              <text class="text-grey padding-sm margin-xs radius">{{item.garName}}</text>
+              <text class="text-grey padding-sm margin-xs radius">{{item.claName}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 全屏抽屉 -->
+<view class="DrawerClose {{modalName=='draverModal'?'show':''}}" bindtap="hideDrawer">
+  <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='draverModal'?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow" wx:for="{{searchlist}}" wx:key="index">
+      <view class="content flex solid-bottom justify-between" bindtap="garInfo" data-target="{{item.garbageName}}">
+        <text class="text-grey padding-sm margin-xs radius">{{item.garbageName}}</text>
+        <text class="text-grey padding-sm margin-xs radius">{{item.searchNum}}次</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

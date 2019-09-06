@@ -1,0 +1,23 @@
+<scroll-view scroll-y class="scrollPage">
+
+  <view class="UCenter-bg">
+    <image src="/img/logo/logo.png" class="cu-avatar round" mode="widthFix"></image>
+    <text>\n</text>
+    <view class="text-xl">垃圾分类助手
+      <text class="text-df">v1.1.4</text>
+    </view>
+    <view class="margin-top-sm">
+      <text>By:你是什么垃圾</text>
+    </view>
+    <image src="https://garbage-1259206583.cos.ap-chengdu.myqcloud.com/garbage/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/opinion/opinion" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">意见</text>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

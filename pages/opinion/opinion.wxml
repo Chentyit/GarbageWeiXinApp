@@ -1,0 +1,40 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">意见反馈</view>
+</cu-custom>
+
+<view class="cu-form-group">
+  <view class="title">日期选择</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2030-09-01" bindchange="DateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+</view>
+<view class="cu-form-group">
+  <view class="title">地址选择</view>
+  <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+</view>
+
+<view class="cu-form-group margin-top">
+  <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="多行文本输入框"></textarea>
+</view>
+
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-green margin-tb-sm lg" bindtap="uploadOpinion">提交</button>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">确定</view>
+    </view>
+    <view class="padding-xl">
+      意见已提交
+    </view>
+  </view>
+</view>
