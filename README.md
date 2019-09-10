@@ -44,3 +44,5 @@
 ![提交意见](/mkimg/提交意见.png)
 
 该小程序没有部署到 HTTPS 服务器上，只是调试的时候可以使用，需要的朋友可以自行搭建到 HTTPS 服务器，后端代码稍后上传
+
+[后端代码](https://github.com/Chentyit/GarbageBackendCode)已上传
